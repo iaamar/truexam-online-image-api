@@ -1,0 +1,389 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Online Image Editing Bootcamp",
+    "description": "API Documentation"
+  },
+  "servers": [
+    {
+      "url": "/",
+      "description": ""
+    },
+    {
+      "url": "/api/",
+      "description": ""
+    }
+  ],
+  "tags": [
+    {
+      "name": "Users",
+      "description": "API for users"
+    },
+    {
+      "name": "Instructors",
+      "description": "API for instructors "
+    },
+    {
+      "name": "EditingTask",
+      "description": "API for Editing task "
+    },
+    {
+      "name": "AccessTask",
+      "description": "API for Accessing task "
+    },
+    {
+      "name": "UploadImage",
+      "description": "API for uplading image "
+    },
+    {
+      "name": "DownloadImage",
+      "description": "API for downloading image"
+    },
+    {
+      "name": "GradeImage",
+      "description": "API for Grading "
+    },
+    {
+      "name": "Stats",
+      "description": "API for Stats "
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/users": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get all users",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Users"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create a new user",
+        "requestBody": {
+          "description": "User Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/User"
+              }
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/id"
+            }
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          }
+        }
+      }
+    },
+    "/instructors": {
+      "get": {
+        "tags": [
+          "Instructors"
+        ],
+        "summary": "Get all instructors",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Instructors"
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Instructors"
+        ],
+        "summary": "Create a new Instructors",
+        "requestBody": {
+          "description": "Instructors Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/Instructors"
+              }
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/id"
+            }
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          }
+        }
+      }
+    },
+    "/createEditingTask": {
+      "post": {
+        "tags": [
+          "EditingTask"
+        ],
+        "summary": "Create a new EditingTask",
+        "requestBody": {
+          "description": "EditingTask Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/EditingTask"
+              }
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/id"
+            }
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          }
+        }
+      }
+    },
+    "/accessTask": {
+      "get": {
+        "tags": [
+          "AccessTask"
+        ],
+        "summary": "Get all AccesTask",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AccesTask"
+            }
+          }
+        }
+      }
+    },
+    "/uploadImage": {
+      "post": {
+        "tags": [
+          "UploadImage"
+        ],
+        "summary": "Upload Image ",
+        "requestBody": {
+          "description": "Upload Object",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/definitions/UploadImage"
+              }
+            }
+          }
+        },
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/id"
+            }
+          },
+          "400": {
+            "description": "Failed. Bad post data."
+          }
+        }
+      }
+    },
+    "/downloadImage": {
+      "get": {
+        "tags": [
+          "DownloadImage"
+        ],
+        "summary": "Download Image",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AccesTask"
+            }
+          }
+        }
+      }
+    },
+    "/gradeImage": {
+      "get": {
+        "tags": [
+          "GradeImage"
+        ],
+        "summary": "Get all Grade",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AccesTask"
+            }
+          }
+        }
+      }
+    },
+    "/stats": {
+      "get": {
+        "tags": [
+          "Stats"
+        ],
+        "summary": "Get all Stats",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/AccesTask"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "id": {
+      "properties": {
+        "uuid": {
+          "type": "string"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        }
+      }
+    },
+    "Users": {
+      "type": "object",
+      "properties": {
+        "users": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/User"
+          }
+        }
+      }
+    },
+    "Instructor": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        }
+      }
+    },
+    "Instructors": {
+      "type": "object",
+      "properties": {
+        "instructors": {
+          "type": "object",
+          "$ref": "#/definitions/Instructor"
+        }
+      }
+    },
+    "EditingTask": {
+      "type": "object",
+      "properties": {
+        "EditingTask": {
+          "type": "object",
+          "$ref": "#/definitions/Instructor"
+        }
+      }
+    },
+    "AccesTask": {
+      "type": "object",
+      "properties": {
+        "AccesTask": {
+          "type": "object",
+          "$ref": "#/definitions/Instructor"
+        }
+      }
+    },
+    "UploadImage": {
+      "type": "object",
+      "properties": {
+        "UploadTask": {
+          "type": "object",
+          "$ref": "#/definitions/Instructor"
+        }
+      }
+    },
+    "DownloadImage": {
+      "type": "object",
+      "properties": {
+        "DownloadTask": {
+          "type": "object",
+          "$ref": "#/definitions/Instructor"
+        }
+      }
+    },
+    "GradeImage": {
+      "type": "object",
+      "properties": {
+        "GradeTask": {
+          "type": "object",
+          "$ref": "#/definitions/Instructor"
+        }
+      }
+    },
+    "Stats": {
+      "type": "object",
+      "properties": {
+        "Stats": {
+          "type": "object",
+          "$ref": "#/definitions/Instructor"
+        }
+      }
+    }
+  }
+}
